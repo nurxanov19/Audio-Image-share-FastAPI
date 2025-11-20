@@ -77,10 +77,11 @@ async def feed_data(session: AsyncSession = Depends(get_async_session, ), user: 
 
     posts_data = []
     for post in posts:
-        posts_data.append({'id': post.id, 'caption': post.caption, 'url': post.url,
-                           'file_name': post.file_name, 'file_type':post.file_type, "email": user_dict.get(post.user_id, "Unknown")})
+        posts_data.append({'id': post.id, "user_id": str(post.user_id), 'caption': post.caption, 'url': post.url,
+                           'file_name': post.file_name, 'file_type':post.file_type,
+                           "created_at": post.created_at.isoformat(), "is_owner": post.user_id == user.id, "email": user_dict.get(post.user_id, "Unknown")})
 
-    return {'Posts': posts_data}
+    return {'posts': posts_data}
 
 
 @app.delete('/post-delete/{post_id}')

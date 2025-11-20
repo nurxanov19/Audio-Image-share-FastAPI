@@ -9,3 +9,38 @@ wheels/
 # Virtual environments
 .venv
 what-I-learn.txt
+test.db
+
+# ---- Python ----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ---- Virtual environment ----
+.venv/
+env/
+venv/
+
+# ---- Environment variables ----
+.env
+
+# ---- SQLite / Local Databases ----
+*.db
+
+# ---- Lock files ----
+uv.lock
+
+# ---- Alembic ----
+migrations/versions/*.py
+!migrations/env.py
+!migrations/README
+
+# ---- OS / Editor files ----
+.DS_Store
+.idea/
+.vscode/
+
+# ---- Compiled / Cache ----
+.cache/
+pytest_cache/
